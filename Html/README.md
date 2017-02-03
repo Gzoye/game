@@ -86,7 +86,7 @@ git clone下来后，可以将`StaticPage`文件夹修改成项目的文件名:
 ````
 "name": "seawayProject", 修改成自己的项目名称
 "version": "0.0.1",修改版本号
-"author": "chenshw",修改作者
+"author": "gozye",修改作者
   ....
 ````
 devDependencies 参数是NPM 依赖包，如在不清楚理解情况下不要修改
