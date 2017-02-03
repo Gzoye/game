@@ -1,0 +1,125 @@
+<template>
+	<div class="page">
+		<sheader :left-options="leftOptions">
+	    	{{title}}
+	    </sheader>
+		<section class="wrapper-content" id="wrapper">
+    		<div class="wrapper-scroll">
+    			<div class="recharge b-fff">
+	                <div class="fn-left" @click="showCover">
+	                    <div class="recharge-icon">
+	                        <img src="../images/back_icon1.png" alt="">
+	                    </div>
+	                    <div class="recharge-num">
+	                        <p class="recharge-backtitle">石嘴山银行</p>
+	                        <p class="recharge-backnum">尾号7841</p>
+	                    </div>
+	                </div>
+	                <div class="fn-right">
+	                    可用余额
+	                    <span class="c-org">2000.00</span>
+	                    <i class="iconfont"></i>
+	                </div>
+	            </div>
+	            <ul class="form-cont form-center-fixed-60">
+	                <li class="form-cont-item">
+	                    <label for="" class="form-cont-item-title">金额</label>
+	                    <div class="form-cont-item-content">
+	                        <div class="ele-cont">
+	                            <input type="text" maxlength="" class="ui-input" placeholder="请输入提现金额">
+	                        </div>
+	                    </div>
+	                </li>
+	                <li class="form-cont-item">
+	                    <label for="" class="form-cont-item-title">交易密码</label>
+	                    <div class="form-cont-item-content">
+	                        <div class="ele-cont">
+	                            <input type="text" maxlength="" class="ui-input" placeholder="请输入提现金额">
+	                        </div>
+	                    </div>
+	                </li>
+	                <li class="form-cont-item">
+	                    <label for="" class="form-cont-item-title">验证码</label>
+	                    <div class="form-cont-item-content">
+	                        <div class="ele-cont">
+	                            <input type="text" maxlength="6" class="ui-input" placeholder="短信验证码">
+	                        </div>
+	                    </div>
+	                    <div class="form-cont-item-btn">获取验证码</div>
+	                </li>
+	            </ul>
+	            <div class="ui-btn-group">
+	                <a class="ui-btn ui-yellow-btn">充值</a>
+	            </div>
+	            <router-link to="/rechargeSuccess" tag="div" class="ui-btn-group">
+                    <a class="ui-btn ui-yellow-btn">充值成功btn测试1</a>
+                </router-link>
+    		</div>
+    	</section>
+    	 <transition name="fade">
+	    	<div class="cover" v-if="selectCard">
+	    		<div class="select-card">
+	    			<div class="select-card-title">
+	    				<button class="select-card-close" @click="hideCover"></button>
+	    				选择银行卡
+	    			</div>
+	    			<ul class="select-card-list">
+	    				<li class="select-card-item">
+	    					<img src="../images/back_icon1.png" class="select-card-icon" onerror="onerror=null;src='../images/orror.png'">
+	    					石嘴山银行(尾号4569)
+	    				</li>
+	    				<li class="select-card-item">
+	    					<img src="../images/back_icon2.png" class="select-card-icon" onerror="onerror=null;src='../images/orror.png'">
+	    					中国银行(尾号4569)
+	    				</li>
+	    				<li class="select-card-item">
+	    					<img src="../images/back_icon1.png" class="select-card-icon" onerror="onerror=null;src='../images/orror.png'">
+	    					石嘴山银行(尾号4569)
+	    				</li>
+	    				<li class="select-card-item">
+	    					<img src="../images/back_icon2.png" class="select-card-icon" onerror="onerror=null;src='../images/orror.png'">
+	    					中国银行(尾号4569)
+	    				</li>
+	    			</ul>
+	    			<div class="select-card-new">
+	    				<span class="select-card-newicon">
+	    					 <i class="iconfont">&#xe602;</i>
+	    				</span>
+	    				使用新卡充值
+	    				<span class="fn-right">
+	    					<i class="iconfont">&#xe60a;</i>
+	    				</span>
+	    				
+	    			</div>
+	    		</div>
+	    	</div>
+    	</transition>
+    </div>
+</template>
+<script>
+	import sheader from './lib/sheader'
+    export default {
+	  	components:{
+	     	sheader 
+	  	},
+	  	data () {
+		    return {
+		      	title:"充值",
+		      	selectCard:false,
+		      	leftOptions:{
+			      	showBack: true,
+		          	backText: 'Back',
+		          	preventGoBack: false
+			   	}
+		    }
+	  	},
+	  	methods:{
+	  		hideCover(){
+	  			this.selectCard=false;
+	  		},
+	  		showCover(){
+	  			this.selectCard=true;
+	  		}
+	  	}
+    }
+</script>

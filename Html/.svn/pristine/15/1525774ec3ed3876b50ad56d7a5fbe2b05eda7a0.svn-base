@@ -1,0 +1,131 @@
+<template>
+    <div class="page">
+    	<header class="ui-header index-header">
+    		<router-link to="/myCenter">
+		        <span class="ui-header-left" id="backGo">
+		            <i class="iconfont ui-return" style="font-size: 26px">&#xe649;</i>
+		        </span>
+		    </router-link>
+	        <span class="ui-logout">
+	            <i class="iconfont ui-return" style="font-size: 26px">&#xe637;</i>
+	        </span>
+	    </header>
+    	<section class="wrapper-content" id="wrapper" style="bottom:45px;padding-top:0;top:0;bottom: 46px;">
+    	<div class="wrapper-scroll">
+    		<img src="../images/img1.png" alt="">
+    		<ul class="info-list">
+	    		<template v-if="login==1">
+	                <li class="info-item">
+	                    <i class="iconfont c-dyellow"></i> 我的财富 <i class="iconfont c-gray"></i>
+	                    <span class="fn-right"><span class="info-item-money">40,000.00</span> 元</span>
+	                </li>
+	    		</template>
+	    		<template v-if="login!=1">
+		            <li class="info-item info-item-login" @click="login">立即登录</li>
+	    		</template>
+	    	</ul>
+    		<div class="index-item">
+                <div class="fn-left">
+                    <p class="prolist-item-org">
+                        <span class="prolist-item-big">5.50</span>
+                        <span class="prolist-item-percent">%</span>
+                    </p>
+                    <p class="prolist-item-gray">最高年利率</p>
+                </div>
+                <div class="fn-right">
+                    <p class="index-item-title">石惠存</p> 
+                    <p class="prolist-item-gray">最长存期60个月 | 1,000元 起投 <i class="iconfont"></i></p>
+                    <router-link to="/productDetail">
+                    	<div class="ui-btn index-item-btn">现在就存</div>
+                    </router-link>
+                </div>
+            </div>
+            <div class="index-product">
+                <div class="index-product-head">
+                    <img src="../images/eicon.png" class="info-item-img">
+                    <span class="index-product-more">更多</span>
+                </div>
+                <div class="index-product-body">
+                    <img src="../images/index_product.png">
+                    <div class="index-product-detail">
+                        <p>预期年化收益率</p>
+                        <div class="prodetail-head-big">
+                            4.56<span class="index-product-small">%</span>
+                        </div>
+                    </div>
+                    <ul class="index-product-list">
+                        <li class="index-product-item">投资期限 90天</li>
+                        <li class="index-product-item">起投金额 1,000.00</li>
+                    </ul>
+                </div>
+                <div class="ui-btn-groupi">
+                    <a class="ui-btn">立即投资</a>
+                </div>
+            </div>
+    	<p>index</p>
+        <p>
+        	<router-link to="/parent/foo">Go to Foo</router-link>
+		    <router-link to="/">Go to index</router-link>
+		    <router-link to="/app/1221">Go to app</router-link>
+		    <router-link to="/myCenter">Go to myCenter</router-link>
+		    <router-link to="/financing">Go to financing</router-link>
+		    <router-link to="/myTest">弹框</router-link>
+        </p>
+        </div>
+        </section>
+        <footer class="ui-footer">
+            <ul class="footer-list">
+                <router-link to="/">
+                <li class="footer-item cur">
+                    <i class="iconfont"></i>
+                    <p class="footer-title">首页</p>
+                </li>
+                </router-link>
+                <router-link to="/app/1221">
+                <li class="footer-item">
+                    <i class="iconfont"></i>
+                    <p class="footer-title">理财</p>
+                </li>
+                </router-link>
+                <router-link to="/myCenter">
+                <li class="footer-item">
+                    <i class="iconfont"></i>
+                    <p class="footer-title">财富</p>
+                </li>
+                </router-link>
+            </ul>
+        </footer>
+    </div>
+</template>
+<script>
+	import sheader from './lib/sheader'
+    export default {
+	  components:{
+	     sheader 
+	  },
+	  data () {
+	    return {
+	      routerTransition: {
+	        forward: 'slideRL',
+	        back: 'slideLR'
+	      },
+	      login:12,
+	      leftOptions:{
+		      showBack: true,
+	          backText: 'Back',
+	          preventGoBack: true
+		   }
+	    }
+	  },
+	  methods: {
+	    login(){
+	    	this.login=1;
+	    }
+	  },
+	  created:function(){
+	  	this.$on('on-click-back', function() {
+          alert("parent");
+         });
+	  }
+    }
+</script>

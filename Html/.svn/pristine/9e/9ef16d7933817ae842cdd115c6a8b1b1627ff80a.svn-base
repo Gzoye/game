@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>石嘴山银行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <link rel="stylesheet" href="style/base.css">
+    <link rel="stylesheet" href="style/iconfont.css">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <header class="ui-header">
+        <span class="ui-header-left" id="backGo">
+            <i class="iconfont ui-return">&#xe630;</i>
+        </span>
+        <h1 class="ui-header-title">演示菜单</h1>
+        <span class="ui-logout">
+            
+        </span>
+    </header>
+    <!-- 产品列表头部 <header class="ui-header">
+    <span class="ui-header-left" id="backGo">
+            <i class="iconfont ui-return">&#xe630;</i>
+        </span>
+        <ul class="prodetail-tab">
+            <li class="prodetail-tab-item">石银E投</li>
+            <li class="prodetail-tab-item cur">石惠存</li>
+        </ul>
+    </header> -->
+    <section class="wrapper-content" id="wrapper" style="margin-bottom: 46px;top: 0">
+        <div class="wrapper-scroll">
+            <h2 class="ui-title">消息列表</h2>
+            <ul class="msg-list">
+                <li class="msg-list-item">
+                    <a href="#">
+                        <div class="msg-list-item-title">我上线啦上线啦</div>
+                        <div class="msg-list-item-info">2015-8-25</div>
+                        <i class="iconfont msg-list-item-icon">&#xe60a;</i>
+                    </a>
+                </li>
+                <li class="msg-list-item">
+                    <a href="#">
+                        <div class="msg-list-item-title">赶快来看啊看啊看</div>
+                        <div class="msg-list-item-info">2015-8-25</div>
+                        <i class="iconfont msg-list-item-icon">&#xe60a;</i>
+                    </a>
+                </li>
+            </ul>
+            <h2 class="ui-title">板块标题</h2>
+            <dl class="msg-info">
+                <dt class="msg-info-head">
+                    <p class="msg-info-title">内容标题</p>
+                    <p class="msg-info-time">2015-8-25</p>
+                </dt>
+                <dd class="msg-info-cont">
+                    系统升级中，系统升级中，系统升级中，是不是超级讨厌，对，我也是，你只要等等就好，去喝杯茶吧，我继续加班啦
+                </dd>
+            </dl>
+            <h2 class="ui-title">我的</h2>
+            <div class="my">
+                <div class="my-head">
+                    <span class="my-name">*小小</span>
+                    <div class="my-head-img">
+                        <img src="images/n1.jpg" alt="had" onerror="onerror=null;src='images/head.png'">
+                    </div>
+                </div>
+                <div class="my-btn">
+                    <div class="my-ui-btn fn-hide">
+                        立即登录
+                    </div>
+                    <p class="my-phone">
+                        <i class="iconfont">&#xe66b;</i>157****878
+                    </p>
+                    <p>
+                        <i class="iconfont">&#xe644;</i> 电子账户 1235464545455544545
+                        <span><i class="iconfont">&#xe636;</i> <span class="t-uline">复制</span></span>
+                    </p>
+                </div>
+            </div>
+            <h2 class="ui-title">成功</h2>
+            <div class="success">
+                <i class="iconfont success-icon">&#xe663;</i>
+                <p>充值成功</p>
+                <p>您的资金1000.00已转入电子账户</p>
+            </div>
+            <h2 class="ui-title">产品详情</h2>
+            <div class="success prodetail-head">
+                <div class="prodetail-head-big">
+                    4.60
+                </div>
+                <div class="o-5">
+                    最高年利率(%)
+                </div>
+                <ul class="prodetail-info-listh">
+                    <li class="prodetail-info-item">
+                        <p class="c-fff">可支取金额(元)</p>
+                        <p class="prodetail-info-fff">60,000.00</p>
+                    </li>
+                    <li class="prodetail-info-item">
+                        <p class="c-fff">已入账收益(元)</p>
+                        <p class="prodetail-info-fff">1,000.00</p>
+                    </li>
+                </ul>
+            </div>
+            <ul class="prodetail-info-list2">
+                <li class="prodetail-info-item">
+                    <p class="prodetail-info-org">60</p>
+                    <p>最长存期(月)</p>
+                </li>
+                <li class="prodetail-info-item">
+                    <p class="prodetail-info-org">1,000</p>
+                    <p>起存金额(元)</p>
+                </li>
+            </ul>
+            <ul class="prodetail-info-list3">
+                <li class="prodetail-info-item">
+                    <p class="prodetail-info-org">60</p>
+                    <p>最长存期(月)</p>
+                </li>
+                <li class="prodetail-info-item">
+                    <p class="prodetail-info-org">1,000</p>
+                    <p>起存金额(元)</p>
+                </li>
+                <li class="prodetail-info-item">
+                    <p class="prodetail-info-org">1,000</p>
+                    <p>起存金额(元)</p>
+                </li>
+            </ul>
+            <ul class="info-list3">
+                <li class="info-item3">
+                    <p class="info-item3-black">2016-04-02</p>
+                    <p>起息日期</p>
+                </li>
+                <li class="info-item3">
+                    <p><span class="info-item3-black">13</span>个月</p>
+                    <p>存期</p>
+                </li>
+                <li class="info-item3">
+                    <p><span class="info-item3-org">13,000.00</span>元</p>
+                    <p>存入金额</p>
+                </li>
+            </ul>
+            <div class="prodetail-tips">
+                存入10万元，相同的存期,<span class="c-org">石惠存</span>给您土豪收益
+            </div>
+            <h2 class="ui-title">首页</h2>
+            <ul class="info-list">
+                <li class="info-item info-item-login">立即登录</li>
+                <li class="info-item">
+                    <i class="iconfont c-dyellow">&#xe605;</i> 我的财富 <i class="iconfont c-gray">&#xe608;</i>
+                    <span class="fn-right"><span class="info-item-money">40,000.00</span> 元</span>
+                </li>
+            </ul>
+            <div class="index-item">
+                <div class="fn-left">
+                    <p class="prolist-item-org">
+                        <span class="prolist-item-big">5.50</span>
+                        <span class="prolist-item-percent">%</span>
+                    </p>
+                    <p class="prolist-item-gray">最高年利率</p>
+                </div>
+                <div class="fn-right">
+                    <p class="index-item-title">石惠存</p>
+                    <p class="prolist-item-gray">最长存期60个月 | 1,000元 起投 <i class="iconfont">&#xe60a;</i></p>
+                    <div class="ui-btn index-item-btn">现在就存</div>
+                </div>
+            </div>
+            <div class="index-product">
+                <div class="index-product-head">
+                    <img src="images/eicon.png" class="info-item-img">
+                    <span class="index-product-more">更多</span>
+                </div>
+                <div class="index-product-body">
+                    <img src="images/index_product.png">
+                    <div class="index-product-detail">
+                        <p>预期年化收益率</p>
+                        <div class="prodetail-head-big">
+                            4.56<span class="index-product-small">%</span>
+                        </div>
+                    </div>
+                    <ul class="index-product-list">
+                        <li class="index-product-item">投资期限 90天</li>
+                        <li class="index-product-item">起投金额 1,000.00</li>
+                    </ul>
+                </div>
+                <div class="ui-btn-groupi">
+                    <a class="ui-btn">立即投资</a>
+                </div>
+            </div>
+            <h2 class="ui-title">介绍列表</h2>
+            <ul class="info-list">
+                <li class="info-item">
+                    石惠存介绍<span class="fn-right"><i class="iconfont">&#xe60a;</i></span>
+                </li>
+                <li class="info-item">
+                    石惠存介绍<span class="fn-right"><i class="iconfont">&#xe60a;</i></span>
+                </li>
+            </ul>
+            <h2 class="ui-title">我的财富</h2>
+            <ul class="my-list">
+                <li class="my-item">
+                    <i class="iconfont c-green">&#xe605;</i>
+                    <p class="my-item-title">充值</p>
+                </li>
+                <li class="my-item">
+                    <i class="iconfont c-purpel">&#xeb6e;</i>
+                    <p class="my-item-title">提现</p>
+                </li>
+                <li class="my-item">
+                    <i class="iconfont c-purpel">&#xe602;</i>
+                    <p class="my-item-title">银行卡</p>
+                </li>
+                <li class="my-item">
+                    <i class="iconfont c-green">&#xe72b;</i>
+                    <p class="my-item-title">交易明细</p>
+                </li>
+            </ul>
+            <ul class="info-list info-list1">
+                <li class="info-item">
+                    <span class="info-item-piece b-blue"></span>可用余额
+                    <span class="fn-right">
+                        15,000.00
+                    </span>
+                </li>
+                <li class="info-item">
+                    <span class="info-item-piece b-green"></span>石惠存
+                    <span class="fn-right">
+                        15,000.00 
+                        <p class="info-item-return">预计收益225.00</p>
+                    </span>
+                </li>
+                <li class="info-item">
+                    <span class="info-item-piece b-eyellow"></span>石惠存
+                    <span class="fn-right">
+                        15,000.00
+                    </span>
+                </li>
+            </ul>
+            <h2 class="ui-title">信息输入</h2>
+            <div class="recharge b-fff">
+                <div class="fn-left">
+                    <div class="recharge-icon">
+                        <img src="images/back_icon1.png" alt="">
+                    </div>
+                    <div class="recharge-num">
+                        <p class="recharge-backtitle">石嘴山银行</p>
+                        <p class="recharge-backnum">尾号7841</p>
+                    </div>
+                </div>
+                <div class="fn-right">
+                    可用余额
+                    <span class="c-org">2000.00</span>
+                    <i class="iconfont">&#xe60a;</i>
+                </div>
+            </div>
+            <ul class="form-cont form-center-fixed-60">
+                <li class="form-cont-item">
+                    <label for="" class="form-cont-item-title">金额</label>
+                    <div class="form-cont-item-content">
+                        <div class="ele-cont">
+                            <input type="text" maxlength="" class="ui-input" placeholder="请输入提现金额">
+                        </div>
+                    </div>
+                    <div class="form-cont-item-btn">全额提现</div>
+                </li>
+                <li class="form-cont-item">
+                    <label for="" class="form-cont-item-title">金额</label>
+                    <div class="form-cont-item-content">
+                        <div class="ele-cont">
+                            <input type="text" maxlength="" class="ui-input" placeholder="请输入提现金额">
+                        </div>
+                    </div>
+                    <div class="form-cont-item-tips">全额支取 <i class="iconfont">&#xe6d7;</i></div>
+                </li>
+                <li class="form-cont-item">
+                    <label for="" class="form-cont-item-title">金额</label>
+                    <div class="form-cont-item-content">
+                        <div class="ele-cont">
+                            <span class="c-org">2,000.00元</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-cont-item">
+                    <label for="" class="form-cont-item-title">金额</label>
+                    <div class="form-cont-item-content">
+                        <div class="ele-cont">
+                            <input type="text" class="ui-input" placeholder="请输入充值金额" oninput="clearNoNum(this)">
+                        </div>
+                    </div>
+                </li>
+                <li class="form-cont-item">
+                    <label for="" class="form-cont-item-title">固定左边</label>
+                    <div class="form-cont-item-content">
+                        <div class="ele-cont">
+                            <input type="text" class="ui-input" placeholder="演示数据">
+                        </div>
+                    </div>
+                </li>
+                <li class="form-cont-item">
+                    <label for="" class="form-cont-item-title">验证码</label>
+                    <div class="form-cont-item-content">
+                        <div class="ele-cont">
+                            <input type="text" maxlength="6" class="ui-input" placeholder="短信验证码">
+                        </div>
+                    </div>
+                    <div class="form-cont-item-btn">获取验证码</div>
+                </li>
+            </ul>
+            <h2 class="ui-title">左边宽度为50%</h2>
+            <ul class="form-cont form-center-fixed-p50">
+                <li class="form-cont-item">
+                    <label for="" class="form-cont-item-title">支取金额</label>
+                    <div class="ele-cont">
+                        <span class="c-000">2,000.00元</span>
+                    </div>
+                </li>
+                <li class="form-cont-item">
+                    <label for="" class="form-cont-item-title">留存金额</label>
+                    <div class="ele-cont">
+                        <span class="c-000">2,000.00元</span>
+                    </div>
+                </li>
+            </ul>
+            <div class="info-tips-right">
+                <i class="iconfont c-blue">&#xe6ea;</i>
+                <span class="t-uline c-blue">查看支持银行</span>
+            </div>
+            <div class="info-tips">
+                <input type="checkbox" class="ui-checked">
+                <span class="c-000">我已阅读并同意</span>
+                <span class="c-blue">《石惠存产品服务协议》</span>
+            </div>
+            <div class="tips">
+                <i class="iconfont">&#xe603;</i> 添加石嘴山银行需输入银行卡交易密码；添加其他银行卡需输入电子账户交易密码
+            </div>
+            <h2 class="ui-title">介绍列表</h2>
+            <ul class="info-list">
+                <li class="info-item">
+                    <img class="info-item-img" src="images/eicon.png" alt="">
+                    <span class="fn-right">
+                        <span class="info-item-rtext">精选投资 高回报</span>
+                    <i class="iconfont">&#xe60a;</i>
+                    </span>
+                </li>
+                <li class="info-item">
+                    <img class="info-item-img" src="images/shicon.png" alt="">
+                    <span class="fn-right">
+                        <span class="info-item-rtext">活期的花法 定期的收益</span>
+                    <i class="iconfont">&#xe60a;</i>
+                    </span>
+                </li>
+            </ul>
+            <h2 class="ui-title">帮助中心</h2>
+            <ul class="info-list">
+                <li class="info-item1">
+                    <div class="info-item-title">
+                        1.如何开通石嘴山银行电子账户？<span class="fn-right"><i class="iconfont">&#xe60c;</i></span>
+                    </div>
+                    <div class="info-item-detail">
+                        用户注册直销银行登录后输入本人姓名、身份证号并绑定用户的同名借记卡，经石嘴山银行核查验证通过后设置电子账户交易密码，即可开通石嘴山银行电子账户。
+                    </div>
+                </li>
+                <li class="info-item">
+                    <div class="info-item-text">
+                        <textarea name="" placeholder="您的意见和建议，是我们前进的动力"></textarea>
+                        <span class="info-item-corner">0/500</span>
+                    </div>
+                </li>
+                <li class="info-item">
+                    联系方式
+                    <input class="info-item-input" type="tel" name="" placeholder="(选填)手机号码/电子邮箱" id="">
+                </li>
+            </ul>
+            <h2 class="ui-title">设置</h2>
+            <ul class="info-list">
+                <li class="info-item">
+                    <i class="iconfont info-item-left c-green">&#xe628;</i>设备管理<span class="fn-right"><i class="iconfont">&#xe60a;</i></span>
+                </li>
+                <li class="info-item">
+                    <i class="iconfont info-item-left c-blue">&#xe606;</i>安全中心<span class="fn-right"><i class="iconfont">&#xe60a;</i></span>
+                </li>
+                <li class="info-item">
+                    <i class="iconfont info-item-left c-red">&#xe6d7;</i>帮助中心<span class="fn-right"><i class="iconfont">&#xe60a;</i></span>
+                </li>
+                <li class="info-item">
+                    <i class="iconfont info-item-left c-yellow">&#xe667;</i>关于我们<span class="fn-right"><i class="iconfont">&#xe60a;</i></span>
+                </li>
+                <li class="info-item">
+                    <i class="iconfont info-item-left c-green">&#xe629;</i>分享给好友<span class="fn-right"><i class="iconfont">&#xe60a;</i></span>
+                </li>
+            </ul>
+            <h2 class="ui-title">设备管理</h2>
+            <div class="equipment cur">
+                <div class="equipment-phone">
+                    <i class="iconfont">&#xe613;</i>
+                </div>
+                <div class="equipment-info">
+                    <p class="equipment-big">华为荣耀8</p>
+                    <p class="equipment-small">绑定日期：2016-10-20</p>
+                </div>
+                <div class="equipment-right">
+                    <span class="equipment-use fn-hide">正在使用</span>
+                    <i class="iconfont">&#xe60a;</i>
+                </div>
+            </div>
+            <div class="equipment">
+                <div class="equipment-phone">
+                    <i class="iconfont">&#xe613;</i>
+                </div>
+                <div class="equipment-info">
+                    <p class="equipment-big">oppoR8</p>
+                    <p class="equipment-small">绑定日期：2016-10-20</p>
+                </div>
+                <div class="equipment-right">
+                    <span class="equipment-use fn-hide">正在使用</span>
+                    <i class="iconfont">&#xe60a;</i>
+                </div>
+            </div>
+            <div class="ui-btn-group">
+                <a class="ui-btn ui-org-btn">保存</a>
+            </div>
+            <div class="ui-btn-group">
+                <a class="ui-btn ui-yellow-btn">保存</a>
+            </div>
+            <div class="ui-btn-groupk">
+                <a class="ui-btn">意见反馈</a>
+            </div>
+            <dl class="result">
+                <dt class="result-error result-yellow">
+                    <i class="iconfont">&#xe6cc;</i>
+                </dt>
+                <dd class="result-info" id="cl">您的石嘴山银行账号***5555已被注销</br>如有疑问请致电0845-45455454</dd>
+            </dl>
+            <h2 class="ui-title">产品列表</h2>
+            <ul class="prolist-tab">
+                <li class="prolist-tab-item cur">默认</li>
+                <li class="prolist-tab-item"><i class="iconfont">&#xe611;</i>收益率</li>
+                <li class="prolist-tab-item"><i class="iconfont">&#xe611;</i>投资期限</li>
+            </ul>
+            <div class="m-t-5">
+                <div class="prolist-item">
+                    <div class="prolist-item-head">
+                        <span class="fn-right"><i class="iconfont">&#xe60a;</i></span>
+                        <div class="prolist-item-title prolist-item-titleb">
+                            精选投资项目组1213 <i class="iconfont fn-right">&#xe623;</i>
+                        </div>
+                    </div>
+                    <ul class="prolist-item-cont">
+                        <li class="prolist-item-left">
+                            <p class="prolist-item-org"><span class="prolist-item-big">5.50</span><span class="prolist-item-percent">%</span></p>
+                            <p class="prolist-item-gray">预期年化收益率</p>
+                        </li>
+                        <li class="prolist-item-center">
+                            <p class="prolist-item-black">50<span class="prolist-item-day">天</span></p>
+                            <p class="prolist-item-gray">投资期限</p>
+                        </li>
+                        <li class="prolist-item-right">
+                            <img src="images/soldout.png" alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="prolist-item">
+                    <div class="prolist-item-head">
+                        <span class="fn-right"><i class="iconfont">&#xe60a;</i></span>
+                        <div class="prolist-item-title prolist-item-titley">
+                            精选投资项目组1213 <i class="iconfont fn-right">&#xe623;</i>
+                        </div>
+                    </div>
+                    <ul class="prolist-item-cont">
+                        <li class="prolist-item-left">
+                            <p class="prolist-item-org"><span class="prolist-item-big">5.50</span><span class="prolist-item-percent">%</span></p>
+                            <p class="prolist-item-gray">预期年化收益率</p>
+                        </li>
+                        <li class="prolist-item-center">
+                            <p class="prolist-item-black">50<span class="prolist-item-day">天</span></p>
+                            <p class="prolist-item-gray">投资期限</p>
+                        </li>
+                        <li class="prolist-item-right">
+                            <img src="images/soldout.png" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h2 class="ui-title">卡列表</h2>
+            <div class="cards-list">
+                <div class="bankcard">
+                    <div class="bankcard-title">
+                        <span class="bankcard-title-bank">
+                            <img class="back-logo" src="images/back_logo.png" alt="">
+                                |
+                                直销银行
+                            </span>
+                        <span class="bankcard-title-right">*蘑菇</span>
+                    </div>
+                    <div class="bankcard-body">
+                        <div class="bankcard-body-left">
+                            <p class="bankcard-small">账户余额</p>
+                            <p class="bankcard-num">￥2,08900.03</p>
+                        </div>
+                        <div class="bankcard-body-right">
+                            <p class="bankcard-small">账户可用余额</p>
+                            <p class="bankcard-num">￥2,089.03</p>
+                        </div>
+                    </div>
+                    <div class="card-number">
+                        6221 2601 0001 8988 930
+                        <span class="fn-right">
+                            <i class="iconfont">&#xe636;</i><span class="t-uline"> 复制</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="cards-list">
+                <div class="cards-item b-yellow">
+                    <div class="cards-item-icon">
+                        <img src="images/back_icon1.png" alt="">
+                    </div>
+                    <div class="cards-item-info">
+                        <p class="cards-item-title">石嘴山银行<span class="cards-item-use">提现卡</span></p>
+                        <p>6123 **** **** 4555</p>
+                    </div>
+                </div>
+                <div class="cards-item b-watermelon">
+                    <div class="cards-item-icon">
+                        <img src="images/back_icon2.png" alt="">
+                    </div>
+                    <div class="cards-item-info">
+                        <p class="cards-item-title">石嘴山银行<span class="cards-item-use">提现卡</span></p>
+                        <p>6123 **** **** 4555</p>
+                    </div>
+                </div>
+                <div class="cards-item b-dblue">
+                    <div class="cards-item-icon">
+                        <img src="images/back_icon3.png" alt="">
+                    </div>
+                    <div class="cards-item-info">
+                        <p class="cards-item-title">石嘴山银行<span class="cards-item-use">提现卡</span></p>
+                        <p>6123 **** **** 4555</p>
+                    </div>
+                </div>
+                <div class="cards-item b-dgreen">
+                    <div class="cards-item-icon">
+                        <img src="images/back_icon2.png" alt="">
+                    </div>
+                    <div class="cards-item-info">
+                        <p class="cards-item-title">石嘴山银行<span class="cards-item-use">提现卡</span></p>
+                        <p>6123 **** **** 4555</p>
+                    </div>
+                </div>
+            </div>
+            <ul class="accunt-list">
+                <li class="accunt-item">
+                    <p><i class="iconfont c-green">&#xe72b;</i></p>
+                    <p>交易明细</p>
+                </li>
+                <li class="accunt-item">
+                    <p class=""><i class="iconfont c-purpel">&#xe602;</i></p>
+                    <p>我的银行卡</p>
+                </li>
+            </ul>
+            <ul class="date">
+                <li class="date-item date-input">
+                    <p class="c-gray"><i class="iconfont">&#xe60d;</i> 起始日期</p>
+                    <p>
+                        <input type="text" name="" id="" value="2016-02-05">
+                    </p>
+                </li>
+                <li class="date-item date-icon">
+                    <i class="iconfont">&#xe601;</i>
+                </li>
+                <li class="date-item date-input">
+                    <p class="c-gray"><i class="iconfont">&#xe60d;</i> 结束日期</p>
+                    <p>
+                        <input type="text" name="" id="" value="2016-02-05">
+                    </p>
+                </li>
+                <li class="date-item ">
+                    <div class="date-btn">
+                        确定
+                    </div>
+                </li>
+            </ul>
+            <h2 class="ui-title">消息列表</h2>
+            <ul class="msg-list msg-list1">
+                <li class="msg-list-item">
+                    <div class="msg-list-item-title">存入 石惠存</div>
+                    <div class="msg-list-item-info">2015-8-25 16:20:11</div>
+                    <span class="msg-list-item-icon">1,000.00元</span>
+                </li>
+                <li class="msg-list-item">
+                    <div class="msg-list-item-title">存入 石惠存</div>
+                    <div class="msg-list-item-info">2015-8-25 16:20:11</div>
+                    <span class="msg-list-item-icon">1,000.00元</span>
+                </li>
+            </ul>
+            <div class="norecord">
+                <img src="images/norecord.png" alt="">
+                <p>暂无记录</p>
+            </div>
+        </div>
+    </section>
+    <footer class="ui-footer">
+        <ul class="footer-list">
+            <router-link to="/">
+                <li class="footer-item cur">
+                    <i class="iconfont"></i>
+                    <p class="footer-title">首页</p>
+                </li>
+            </router-link>
+            <router-link to="/app/1221">
+                <li class="footer-item">
+                    <i class="iconfont"></i>
+                    <p class="footer-title">理财</p>
+                </li>
+            </router-link>
+            <router-link to="/myCenter">
+                <li class="footer-item">
+                    <i class="iconfont"></i>
+                    <p class="footer-title">财富</p>
+                </li>
+            </router-link>
+        </ul>
+    </footer>
+</body>
+
+</html>

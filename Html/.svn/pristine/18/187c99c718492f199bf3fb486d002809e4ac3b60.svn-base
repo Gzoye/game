@@ -1,0 +1,193 @@
+/**
+ * 
+ * @authors chenshw (chenshw@seaway.net.cn)
+ * @date    2016-11-14 13:43:28
+ * @version $Id$
+ * @description 
+ * @update [user] [date] [instruction]
+ */
+
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import store from '../vuex/index'
+import Index from '../components/index'
+import App from '../components/app'
+import Parent from '../components/parent'
+import Financing from '../components/financing'
+import MyCenter from '../components/myCenter'
+import MyTest from '../components/myTest'
+import ProductDetail from '../components/productDetail'
+
+
+require("../style/base.css");
+require("../style/iconfont.css");
+require("../style/style.css");
+require("../style/page.css");
+require("../style/layer.css");
+// 务必在加载 Vue 之后，立即同步设置以下内容
+Vue.config.devtools = true
+Vue.config.errorHandler = function(err, vm) {
+    // handle error
+    console.log("错误信息：" + err);
+    console.log(vm)
+}
+const inBrowser = typeof window !== 'undefined'
+const UA = inBrowser && window.navigator.userAgent.toLowerCase()
+const isIE = UA && /msie|trident/.test(UA)
+const isIE9 = UA && UA.indexOf('msie 9.0') > 0
+const isEdge = UA && UA.indexOf('edge/') > 0
+const isAndroid = UA && UA.indexOf('android') > 0
+const isIOS = UA && /iphone|ipad|ipod|ios/.test(UA)
+const isWechat = /micromessenger/i.test(UA)
+Vue.mixin({
+    created: function() {
+        this.$device = {
+            isAndroid,
+            isIOS,
+            isWechat
+        }
+    },
+    activated: function() {
+        // console.log("当前："+this.$route.path)
+        let history = window.sessionStorage;
+        let top = history.getItem(this.$route.path) ? JSON.parse(history.getItem(this.$route.path)).top : 0;
+        // if (store.state.direction !== "forward") {
+        if (this.$device.isIOS) {
+            console.log(this.$el);
+            console.log(this.$el.getElementsByTagName('section'));
+            // this.$el.getElementsByClassName('.wrapper-content').scrollTop=top;
+            // document.getElementById(this.uuid).scrollTop=top;
+            this.$el.getElementsByTagName('section')[0].scrollTop = top;
+            // console.log(document.getElementsByClassName("wrapper-content")[0]);
+        } else {
+            document.body.scrollTop = top;
+        }
+        // }
+    }
+})
+Vue.use(VueRouter)
+const scrollBehavior = (to, from, savedPosition) => {
+    if (savedPosition) {
+        console.log(to)
+            // savedPosition is only available for popstate navigations.
+        return savedPosition
+    } else {
+        const position = {}
+            // new navigation.
+            // scroll to anchor by returning the selector
+        if (to.hash) {
+            position.selector = to.hash
+        }
+        // check if any matched route config has meta that requires scrolling to top
+        if (to.matched.some(m => m.meta.scrollToTop)) {
+            // cords will be used if no selector is provided,
+            // or if the selector didn't match any element.
+            position.x = 0
+            position.y = 0
+        }
+        // if the returned position is falsy or an empty object,
+        // will retain current scroll position.
+        console.log(position)
+        return position
+    }
+}
+const router = new VueRouter({
+    routes: [{
+                path: '/',
+                component: Index
+            }, //首页
+            {
+                path: '/myCenter',
+                component: MyCenter
+            }, //个人中心
+            {
+                path: '/financing',
+                component: Financing
+            }, //理财
+            {
+                path: '/app/:id',
+                component: App
+            }, {
+                path: '/parent/:pageName',
+                component: Parent
+            }, {
+                path: '/myTest',
+                component: MyTest
+            }, {
+                path: '/productDetail',
+                component: ProductDetail
+            } //产品详情
+        ]
+        // ,
+        // mode: 'history',
+        // base: __dirname,
+        // scrollBehavior
+})
+
+
+
+let history = window.sessionStorage
+history.clear()
+let historyCount = history.getItem('count') * 1 || 0
+history.setItem('/', '{}')
+var vues = new Vue();
+const commit = store.commit || store.dispatch
+router.beforeEach((to, from, next) => {
+    var toPage = history.getItem(to.path)
+    var fromPage = history.getItem(from.path);
+    console.log(fromPage);
+    var OfromPage = fromPage ? JSON.parse(fromPage) : {};
+    OfromPage["top"] = 0;
+    console.log(OfromPage)
+    if (Vue.util.isIOS) {
+        OfromPage.top = document.getElementsByClassName("wrapper-content")[0] ? document.getElementsByClassName("wrapper-content")[0].scrollTop : 0;
+    } else {
+        OfromPage.top = document.body.scrollTop;
+    }
+    history.setItem(from.path, JSON.stringify(OfromPage))
+
+    if (toPage) {
+        // if (toIndex > fromIndex) {
+        //     commit('UPDATE_DIRECTION', 'forward')
+        // } else {
+        //     commit('UPDATE_DIRECTION', 'reverse')
+        // }
+    } else {
+        ++historyCount
+        history.setItem('count', historyCount);
+        let pageInfo = {
+            historyCount: historyCount,
+            top: 0,
+        };
+        to.path !== '/' && history.setItem(to.path, JSON.stringify(pageInfo));
+        // commit('UPDATE_DIRECTION', 'forward')
+    }
+    // commit('UPDATE_LOADING', true)
+    // setTimeout(next, 50)
+    next();
+})
+router.afterEach((to, from) => {
+
+    console.log("top:" + top)
+    setTimeout(function() {
+        commit('UPDATE_DIRECTION', 'forward')
+    }, 400);
+})
+
+new Vue({
+    store,
+    router,
+    computed: {
+        systemclass() {
+            return Vue.util.isIOS ? "ios" : "";
+        },
+        direction() {
+            return store.state.direction
+        }
+    },
+    watch: {
+        "$route": function($route) {
+            console.log($route)
+        }
+    }
+}).$mount('#app')

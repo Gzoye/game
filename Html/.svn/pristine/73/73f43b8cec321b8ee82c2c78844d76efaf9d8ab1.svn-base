@@ -1,0 +1,113 @@
+<template>
+    <div class="page">
+    	<sheader :left-options="leftOptions">
+    		{{title}}
+    	</sheader>
+    	<section class="wrapper-content">
+	        <div class="wrapper-scroll">
+	           <div class="success prodetail-head">
+	                <div class="prodetail-head-big">
+	                   40,000.00
+	                </div>
+	                <div class="o-5">
+	                    总资产(元) <i class="iconfont">&#xe608;</i>
+	                </div>
+	            </div>	
+                 <ul class="my-list">
+                <li class="my-item">
+                    <i class="iconfont c-green">&#xe605;</i>
+                    <p class="my-item-title">充值</p>
+                </li>
+                <li class="my-item">
+                    <i class="iconfont c-purpel">&#xeb6e;</i>
+                    <p class="my-item-title">提现</p>
+                </li>
+                <li class="my-item">
+                    <i class="iconfont c-purpel">&#xe602;</i>
+                    <p class="my-item-title">银行卡</p>
+                </li>
+                <li class="my-item">
+                    <i class="iconfont c-green">&#xe72b;</i>
+                    <p class="my-item-title">交易明细</p>
+                </li>
+            </ul>
+            <ul class="info-list info-list1">
+                <li class="info-item">
+                    <span class="info-item-piece b-blue"></span>可用余额
+                    <span class="fn-right">
+                        15,000.00
+                    </span>
+                </li>
+                <li class="info-item">
+                    <span class="info-item-piece b-green"></span>石惠存
+                    <span class="fn-right">
+                        15,000.00 
+                        <p class="info-item-return">预计收益225.00</p>
+                    </span>
+                </li>
+                <li class="info-item">
+                    <span class="info-item-piece b-eyellow"></span>石惠存
+                    <span class="fn-right">
+                        15,000.00
+                    </span>
+                </li>
+            </ul>
+	        </div>
+   		</section>
+   		<footer class="ui-footer">
+	        <ul class="footer-list">
+	            <router-link to="/"  class="footer-item" tag="li"> 
+	                <i class="iconfont">&#xe60f;</i>
+	                <p class="footer-title">首页</p>
+	            </router-link>
+	            <router-link to="/financing"  class="footer-item" tag="li"> 
+	                <i class="iconfont">&#xe65b;</i>
+	                <p class="footer-title">理财</p>
+	            </router-link>
+	             <router-link to="/myWealth"  class="footer-item cur" tag="li">
+	                <i class="iconfont">&#xe6c8;</i>
+	                <p class="footer-title">财富</p>
+	            </router-link>
+	        </ul>
+        </footer>
+    </div>
+</template>
+<script>
+	import sheader from './lib/sheader'
+	import { mapState } from 'vuex'
+    export default {
+	  components:{
+	     sheader 
+	  },
+	  data () {
+	    return {
+	      title:"我的财富",
+	      leftOptions:{
+		      showBack: false,
+	          backText: 'Back',
+	          preventGoBack: false
+		   }
+	    }
+	  },
+	  computed: {
+	     ...mapState({
+		    isLogin: state => state.user.isLogin,
+		    user:state => state.user.user
+		 })	
+	  },
+	  methods: {
+	      logout(){
+	      	 this.$store.dispatch('LOGOUT')
+	      },
+	      login(){
+	      	 this.$store.dispatch('LOGIN',{
+		        img: "images/head.png",
+		        account: "1212",
+		        name: "121212",
+		        phone: "186****7529",
+		        assets:"1212121212"
+			 });
+	      } 
+	  }
+    }
+</script>

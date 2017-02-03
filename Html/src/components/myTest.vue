@@ -1,0 +1,152 @@
+<template>
+    <div class="page">
+        <sheader :left-options="leftOptions">
+            {{title}}
+        </sheader>
+        <section class="wrapper-content" id="wrapper">
+            <div class="wrapper-scroll">
+            <div class="ui-btn-group">
+                <a class="ui-btn ui-org-btn" v-on:click="showTotast('aaa',true)">totast1</a>
+            </div>
+             <div class="ui-btn-group">
+                <a class="ui-btn ui-org-btn" v-on:click="showTotast('bbb',true)">totast2</a>
+            </div>
+            <div class="ui-btn-group">
+                <a class="ui-btn ui-org-btn" v-on:click="alertShow">alert</a>
+            </div>
+             <div class="ui-btn-group">
+                <a class="ui-btn ui-org-btn" v-on:click="confirmShow">confirm</a>
+            </div>
+            <div class="ui-btn-group">
+                <a class="ui-btn ui-org-btn" v-on:click="propShow">prop</a>
+            </div>
+            <!-- <ul class="form-cont form-center-fixed-60">
+                <li class="form-cont-item">
+                    <label for="" class="form-cont-item-title">日期选择</label>
+                    <div class="form-cont-item-content">
+                        <div class="ele-cont">
+                            <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-mm-dd" autocomplete="off" class="ui-input" @click="laydate({elem: this})">
+                        </div>
+                    </div>
+                </li>
+            </ul> -->
+               
+            <!--弹框组件-->
+            <layer :layer-options="layer" v-on:onlayerback="closeLayer" ></layer>
+              <!--totast组件-->
+            <totast :isshow="totast.isshow">{{ totast.message}}</totast>
+               
+              
+            </div>
+        </section>
+    </div>
+</template>
+<script>
+    import sheader from './lib/sheader'
+    import layer from '../components/lib/layer'//layer引用：1.组件
+    import totast from '../components/lib/toast'//totast引用：1.组件
+
+    export default {
+      components:{
+         sheader,totast,layer
+      },
+      data () {
+        return {
+          routerTransition: {
+            forward: 'slideRL',
+            back: 'slideLR'
+          },
+          title:"我的设置",
+          leftOptions:{
+              showBack: true,
+              backText: 'Back',
+              preventGoBack: false
+           },
+          //totast引用：2.属性
+          totast: {
+              isshow : false,
+              message: ""
+          },
+          //layer引用：2.属性
+        layer: {
+            isshow : false,//是否打开弹框
+            btns :[],//弹框按钮名称
+            type: 'alert', //类型：'alert'/'confirm'/'prop'
+            message: "", //内容
+            shadeClose: false, //是否点击遮罩时关闭层
+            yes : function(){},//确认回调
+            no : function(){}//取消回调
+        }
+        }
+      },
+      methods: {
+         test : function(){
+          alert('test')
+         },
+          showTotast: function(msg,isshow) {
+            //totast引用：3.显示
+            this.totast.message = msg;
+            this.totast.isshow = isshow;
+        },
+        alertShow : function(){
+          //alert实例
+          this.showLayer('alert',{
+            type : 'alert',//必填
+            btns : ['确定'],//必填
+            yes : function(){//选填
+                    alert('alert');
+            }
+          })
+
+        },
+        confirmShow : function(){
+             //confirm实例
+            this.showLayer('aaa',{
+            type : 'confirm',
+            btns : ['取消','保存'],
+            yes : function(){
+                   alert('confirm-yes');
+            },
+            no :function(){
+                   alert('confirm-no');
+            }
+          })
+
+        },
+        propShow : function(){
+        
+           //prop实例
+           this.showLayer(' sdfsddsf',{
+            type : 'prop',//必填
+            yes : function(){
+                   alert('prop-yes');
+            },
+            shadeClose : true
+          })
+        },
+        showLayer: function(msg,options) {
+            //layer引用：3.显示弹框
+            this.layer.type = options.type;
+            this.layer.message = msg;
+            this.layer.isshow = true;
+            this.layer.shadeClose = options.shadeClose;
+            this.layer.btns = options.btns;
+            this.layer.yes = options.yes;
+            this.layer.no = options.no;
+        },
+        closeLayer: function(type,shade) {
+                //layer引用：4.回调函数
+                if( type == 'cancel'){
+                     this.layer.no && this.layer.no();
+                }else{
+                   this.layer.yes &&  this.layer.yes();
+                }
+        }
+      },
+      created:function(){
+        this.$on('on-click-back', function() {
+             alert("user");
+         });
+      }
+    }
+</script>

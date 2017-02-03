@@ -1,0 +1,112 @@
+<template>
+    <div class="page">
+    	<sheader :left-options="leftOptions">
+    		<ul class="prodetail-tab">
+             <router-link to="/financing" class="prodetail-tab-item cur" tag="li">
+               石银E投
+             </router-link>
+	            <router-link to="/productDetail" class="prodetail-tab-item" tag="li">
+              石惠存
+              </router-link>
+	        </ul>
+    	</sheader>
+    	<section class="wrapper-content" :id="uuid" style="padding-bottom:0.45rem">
+	    	<div class="wrapper-scroll">
+    	    	<ul class="prolist-tab">
+                    <li class="prolist-tab-item cur">默认</li>
+                    <li class="prolist-tab-item"><i class="iconfont">&#xe611;</i>收益率</li>
+                    <li class="prolist-tab-item"><i class="iconfont">&#xe611;</i>投资期限</li>
+                </ul>
+                <div class="m-t-5">
+                    <router-link to="/myCenter" tag="div" class="prolist-item" v-for="i in n">
+                        <div class="prolist-item-head">
+                            <span class="fn-right"><i class="iconfont">&#xe60a;</i></span>
+                            <div class="prolist-item-title prolist-item-titleb">
+                                精选投资项目组{{i}} <i class="iconfont fn-right">&#xe623;</i>
+                            </div>
+                        </div>
+                        <ul class="prolist-item-cont">
+                            <li class="prolist-item-left">
+                                <p class="prolist-item-org"><span class="prolist-item-big">5.50</span><span class="prolist-item-percent">%</span></p>
+                                <p class="prolist-item-gray">预期年化收益率</p>
+                            </li>
+                            <li class="prolist-item-center">
+                                <p class="prolist-item-black">50<span class="prolist-item-day">天</span></p>
+                                <p class="prolist-item-gray">投资期限</p>
+                            </li>
+                            <li class="prolist-item-right">
+                                <img src="../images/soldout.png" alt="">
+                            </li>
+                        </ul>
+                    </router-link>
+                </div>
+                <div class="ui-fresh-inner"><span class="ui-fresh-text">上拉加载更多...</span></div>
+	        </div>
+        </section>
+        <footer class="ui-footer">
+            <ul class="footer-list">
+                <router-link to="/"  class="footer-item" tag="li"> 
+                    <i class="iconfont">&#xe60f;</i>
+                    <p class="footer-title">首页</p>
+                </router-link>
+                <router-link to="/financing"  class="footer-item cur" tag="li"> 
+                    <i class="iconfont">&#xe65b;</i>
+                    <p class="footer-title">理财</p>
+                </router-link>
+                <router-link to="/myWealth"  class="footer-item" tag="li">
+                    <i class="iconfont">&#xe6c8;</i>
+                    <p class="footer-title">财富</p>
+                </router-link>
+            </ul>
+        </footer>
+    </div>
+</template>
+<script>
+	  import sheader from './lib/sheader'
+    import { upDownScroll } from '../js/lib/scroll'
+    export default {
+	  components:{
+	     sheader 
+	  },
+	  data () {
+	    return {
+          n:10,
+	      leftOptions:{
+		      showBack: false,
+	          backText: 'Back',
+	          preventGoBack: false
+		   }
+	    }
+	  },
+	  methods: {
+        testup(){
+           // this.Scroll.refresh(); // 完成刷新
+           // this.Scroll.noIscroll();// 无数据
+           var _self=this;
+           if(_self.n>=50){
+           
+            setTimeout(()=>{
+             _self.Scroll.noIscroll();
+           } ,1000)
+           
+              return;
+           }
+           setTimeout(()=>{
+              _self.n=_self.n+10;
+                _self.Scroll.refresh();
+           } ,1000)
+           
+        },
+        testdown(){
+
+        }
+	  },
+	  created:function(){
+           this.uuid = "V"+Math.random().toString(36).substring(2, 10)+new Date().getTime();
+	  },
+      mounted:function(){
+           this.Scroll=new upDownScroll(this.testdown,this.testup,this.uuid);
+      }
+     
+    }
+</script>

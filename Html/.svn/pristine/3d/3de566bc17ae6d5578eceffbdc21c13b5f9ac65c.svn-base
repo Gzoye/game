@@ -1,0 +1,87 @@
+<template>
+	<div class="page" style="background-color: #f3f3f3;">
+		<header class="ui-header">
+    		<span class="ui-header-left" @click="onClickBack">
+	            <i class="iconfont ui-return">&#xe630;</i>
+	        </span>
+	        <ul class="prodetail-tab" >
+	            <li class="prodetail-tab-item" v-bind:class="{cur: isActive}" @click="productTab">石银E投</li>
+	            <li class="prodetail-tab-item" v-bind:class="{cur: !isActive}" @click="productTab">石惠存</li>
+	        </ul>
+	    </header>
+		<section class="wrapper-content" id="wrapper">
+    		<div class="wrapper-scroll">
+	    		<div class="success prodetail-head">
+	                <div class="prodetail-head-big">
+	                    4.60
+	                </div>
+	                <div class="o-5">
+	                    最高年利率(%)
+	                </div>
+	            </div>	
+    			<ul class="prodetail-info-list2">
+	                <li class="prodetail-info-item">
+	                    <p class="prodetail-info-org">60</p>
+	                    <p>最长存期(月)</p>
+	                </li>
+	                <li class="prodetail-info-item">
+	                    <p class="prodetail-info-org">1,000</p>
+	                    <p>起存金额(元)</p>
+	                </li>
+	            </ul>
+				<div class="prodetail-tips">
+	                存入10万元，相同的存期,<span class="c-org">石惠存</span>给您土豪收益
+	            </div>
+	            <img src="../images/rate1.png" class="b-t-1">
+	            <ul class="info-list m-t-10">
+	                <li class="info-item">
+	                    <span class="c-000">石惠存介绍</span>
+	                    <span class="fn-right"><i class="iconfont"></i></span>
+	                </li>
+            	</ul>
+            	<div class="ui-btn-group">
+	                <a class="ui-btn ui-yellow-btn">现在就存</a>
+	            </div>
+    		</div>
+    	</section>
+    </div>
+</template>
+<script>
+    export default {
+    	name:'header',
+	  	props: {
+		    leftOptions: {
+		      	type: Object,
+		      	default () {
+			        return {
+			          showBack: true,
+			          backText: 'Back',
+			          preventGoBack: false
+			        }
+		      	}
+		    }
+		},
+		data(){
+			return{
+				isActive:false
+			}
+		},
+  		methods: {
+		    onClickBack() {
+		      	if (this.leftOptions.preventGoBack) {
+			        this.$emit('ontherback',{cc:"csw121"})
+			    } else {
+		      		this.$store.commit('UPDATE_DIRECTION', 'reverse');//返回效果
+		        	history.back()
+		      	}
+		    },
+		    productTab(){
+		    	if(this.isActive){
+		    		this.isActive=false;
+		    	}else{
+		    		this.isActive=true;
+		    	}
+		    }
+		},
+	}													
+</script>
