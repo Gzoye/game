@@ -9,10 +9,6 @@
 
 git是否安装不影响，但是不能直接克隆，只能下载资源
 
-####克隆本仓库
-````
-git clone https://github.com/csw1221/seawayProject.git
-````
 
 ####安装Npm依赖包
 
