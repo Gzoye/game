@@ -1,3 +1,219 @@
-#####auther:guozy
-#####data
-#####persional_file
+##分销系统接口文档
+
+###接口一览
+
+| 接口名称 | 具体方法 |  接口描述  |
+| --------   | :-----   | :----- |
+| 查询用户信息 | [Post]/newstyle/user/findUserInfo | 调用接口查询用户详情 |
+| 修改/新增用户安全信息 | [Post]/newstyle/user/updateUserInfo | 调用接口修改/新增用户信息 |
+| 查询用户佣金信息 | [Post]/newstyle/findCommissionByUserId | 调用接口查询用户佣金信息 |
+| *自动提交至交易所账号 | [Post]/newstyle/updateSwitchExtraction | 调用接口修改是否自动提交至交易所账号 |
+| 查询账号审核信息 | [Post]/newstyle/findAccountInfo | 调用接口查询账号审核信息 |
+| 查询用户账号详情 | [Post]/newstyle/findUserAccountInfoById | 调用接口查询用户账号审核详情 |
+| 审核用户账号 | [Post]/newstyle/checkUserAccount | 审核用户账号 |
+|  |  |  |
+| | | |
+
+###接口详情
+
+####[Post]/newstyle/user/findUserInfo  查询用户信息
+
+####请求参数
+
+| 参数名称 | 参数说明   | 参数类型 | 是否可以为空 |
+| -------- | :--------- | :------- | ------------ |
+| userId   | 用户主键id | Long     | 否           |
+
+####返回参数
+
+| 参数名称 | 参数说明                 | 参数类型   | 是否可以为空 |
+| -------- | :----------------------- | :--------- | :----------- |
+| code     | 编码                     | int        | 否           |
+| data     | 返回数据                 | JSONObject | 否           |
+| msg      | 信息(成功/失败,失败原因) | String     | 否           |
+
+####参数详情  [JSONObject]
+
+| 参数名称 | 参数说明     | 参数类型 | 是否可以为空us |
+| -------- | :----------- | :------- | :------------- |
+| username | 用户交易所名 | String   | 否             |
+| user     | 用户         | DistUser | 否             |
+|          |              |          |                |
+
+
+####参数详情  [DistUser]
+
+| 参数名称       | 参数说明   | 参数类型       | 是否可以为空 |
+| -------------- | :--------- | :------------- | :----------- |
+| id             | 主键id     | String         | 否           |
+| exchUid        | 用户ID     | Long           | 否           |
+| channel        | 渠道       | String         | 否           |
+| name           | 实名       | String         | 否           |
+| mobile         | 手机       | String         | 否           |
+| email          | 邮箱       | String         | 否           |
+| qq             | QQ         | String         | 否           |
+| wechat         | 微信       | String         | 否           |
+| parentDistUser | 邀请人对象 | DistUser       | 否           |
+| status         | 用户状态   | UserStatus     | 否           |
+| createTime     | 创建时间   | Date           | 否           |
+| role           | 角色       | DistRole       | 否           |
+| subDistUsers   | 子集       | List<DistUser> | 否           |
+|                |            |                |              |
+
+####参数详情  [DistRole]
+
+| 参数名称 | 参数说明 | 参数类型 | 是否可以为空us |
+| -------- | :------- | :------- | :------------- |
+| ENABLED  | 启用     | enum     | 否             |
+| DISABLED | 禁用     | enum     | 否             |
+| LOCKED   | 锁定     | enum     | 否             |
+| FROZEN   | 锁定     | enum     | 否             |
+
+####[Post]newstyle/user/updateUserInfo   修改/新增用户安全信息
+
+####请求参数
+
+| 参数名称 | 参数说明 | 参数类型 | 是否可以为空 |
+| -------- | :------- | :------- | ------------ |
+| realName | 真实姓名 | String   | 是           |
+| phone    | 手机号码 | String   | 是           |
+| QQ       | qq号     | String   | 是           |
+| email    | 邮箱号   | String   | 是           |
+| userId   | 用户Id   | Long     | 否           |
+
+####返回参数
+
+| 参数名称 | 参数说明                 | 参数类型 | 是否可以为空 |
+| -------- | :----------------------- | :------- | :----------- |
+| code     | 编码                     | int      | 否           |
+| data     | 返回数据                 | Object   | 否           |
+| msg      | 信息(成功/失败,失败原因) | String   | 否           |
+
+####[Post]/newstyle/findCommissionByUserId  查询用户佣金信息
+
+####请求参数
+
+| 参数名称 | 参数说明   | 参数类型 | 是否可以为空 |
+| -------- | :--------- | :------- | ------------ |
+| userId   | 用户主键id | int      | 否           |
+
+####返回参数
+
+| 参数名称 | 参数说明                 | 参数类型             | 是否可以为空 |
+| -------- | :----------------------- | :------------------- | :----------- |
+| code     | 编码                     | int                  | 否           |
+| data     | 返回数据                 | List<DistUserAssets> | 否           |
+| msg      | 信息(成功/失败,失败原因) | String               | 否           |
+
+参数一览[DistUserAssets]
+
+| 参数名称      | 参数说明 | 参数类型   | 是否可以为空 |
+| ------------- | :------- | :--------- | :----------- |
+| id            | 主键id   | long       | 否           |
+| distUid       | 用户id   | long       | 否           |
+| currency      | 币种     | String     | 否           |
+| currentAmount | 当前金额 | BigDecimal | 否           |
+| frozenAmount  | 冻结金额 | BigDecimal | 否           |
+| historyAmount | 历史金额 | BigDecimal | 否           |
+
+####[Post]/newstyle/findAccountInfo  查询账号审核信息
+
+####请求参数
+
+| 参数名称     | 参数说明                             | 参数类型    | 是否可以为空 |
+| ------------ | :----------------------------------- | :---------- | ------------ |
+| userId       | 用户主键Id                           | String      | 是           |
+| sortTimeType | 是否按照时间排序(1不排序,2排序)默认1 | Integer     | 是           |
+| auditStatus  | 审核状态                             | AuditStatus | 是           |
+| beginTime    | 申请开始时间                         | String      | 是           |
+| endTime      | 申请结束时间                         | String      | 是           |
+| pageSize     | 当前个数显示                         | Integer     | 是           |
+| pageNum      | 当前页数(从0开始)                    | Integer     | 是           |
+|              |                                      |             |              |
+
+####返回参数
+
+| 参数名称 | 参数说明                 | 参数类型      | 是否可以为空 |
+| -------- | :----------------------- | :------------ | :----------- |
+| code     | 编码                     | int           | 否           |
+| data     | 返回数据                 | UserAuditPojo | 否           |
+| msg      | 信息(成功/失败,失败原因) | String        | 否           |
+
+####参数一览[UserAuditPojo]
+| 参数名称    | 参数说明     | 参数类型          | 是否可以为空 |
+| ----------- | :----------- | :---------------- | :----------- |
+| auditVo     | 账号审核信息 | List<UserAuditVo> | 否           |
+| currentPage | 当前页数     | Integer           | 否           |
+| currentNum  | 当前条数     | Integer           | 否           |
+| totalNum    | 总条数       | Integer           | 否           |
+| totalPage   | 总页数       | Integer           | 否           |
+|             |              |                   |              |
+
+####参数一览[UserAuditVo]
+| 参数名称       | 参数说明 | 参数类型    | 是否可以为空 |
+| -------------- | :------- | :---------- | :----------- |
+| uId            | 主键id   | Integer     | 否           |
+| distributionId | 分销id   | Integer     | 否           |
+| userName       | 用户名   | String      | 否           |
+| userType       | 用户类型 | String      | 否           |
+| applyTime      | 申请时间 | Date        | 否           |
+| changeContent  | 变更内容 | String      | 否           |
+| auditStatus    | 审核状态 | AuditStatus | 否           |
+| inviterId      | 邀请人Id | Long        | 否           |
+| auditOpinion   | 审核意见 | String      | 否           |
+
+####参数一览[AuditStatus]
+| 参数名称  | 参数说明   | 参数类型 | 是否可以为空 |
+| --------- | :--------- | :------- | :----------- |
+| UNAUDITED | 未审核     | enum     | 否           |
+| PASSED    | 审核通过   | enum     | 否           |
+| REJECTED  | 审核未通过 | enum     | 否           |
+
+####[Post]/newstyle/findUserAccountInfoById  查询用户账号详情
+
+####请求参数
+
+| 参数名称  | 参数说明 | 参数类型 | 是否可以为空 |
+| --------- | :------- | :------- | ------------ |
+| accountId | 账号id   | Long     | 否           |
+
+####返回参数
+| 参数名称 | 参数说明                 | 参数类型    | 是否可以为空 |
+| -------- | :----------------------- | :---------- | :----------- |
+| code     | 编码                     | int         | 否           |
+| data     | 返回数据                 | UserAuditVo | 否           |
+| msg      | 信息(成功/失败,失败原因) | String      | 否           |
+
+####参数一览[UserAuditVo]
+| 参数名称       | 参数说明 | 参数类型    | 是否可以为空 |
+| -------------- | :------- | :---------- | :----------- |
+| uId            | 主键id   | Integer     | 否           |
+| distributionId | 分销id   | Integer     | 否           |
+| userName       | 用户名   | String      | 否           |
+| userType       | 用户类型 | String      | 否           |
+| applyTime      | 申请时间 | Date        | 否           |
+| changeContent  | 变更内容 | String      | 否           |
+| auditStatus    | 审核状态 | AuditStatus | 否           |
+| inviterId      | 邀请人Id | Long        | 否           |
+| auditOpinion   | 审核意见 | String      | 否           |
+
+####[Post]/newstyle/checkUserAccount  审核用户账号
+
+####请求参数
+
+| 参数名称     | 参数说明   | 参数类型    | 是否可以为空 |
+| ------------ | :--------- | :---------- | ------------ |
+| userId       | 用户主键id | Long        | 否           |
+| auditOpinion | 审核意见   | String      | 否           |
+| auditStatus  | 审核状态   | AuditStatus | 否           |
+
+#### 返回参数
+
+| 参数名称 | 参数说明                 | 参数类型 | 是否可以为空 |
+| -------- | :----------------------- | :------- | :----------- |
+| code     | 编码                     | int      | 否           |
+| data     | 返回数据                 | Object   | 否           |
+| msg      | 信息(成功/失败,失败原因) | String   | 否           |
+
+
+
